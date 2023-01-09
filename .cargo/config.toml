@@ -1,0 +1,11 @@
+[unstable]
+# We need to recompile core (and compiler_builtins), since we cannot use the
+# precompiled core library that is shipped with the rustc binary.
+build-std = ["core", "compiler_builtins"]
+# We also need to make sure that memory-related intrinsics are available, which
+# can be added with the "compiler-builtins-mem" feature. We could implement these
+# ourselves, but why would we if they already exist? <.<
+build-std-features = ["compiler-builtins-mem"]
+
+[build]
+target = "x86_64-tdos.json"
