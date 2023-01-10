@@ -22,11 +22,13 @@
             openssl
             pkg-config
             (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
-              extensions = [ "rust-src" "rust-analyzer" "rustfmt" ];
+              extensions = [ "rust-src" "rust-analyzer" "rustfmt" "llvm-tools-preview" ];
             }))
+            cargo-bootimage
 
             # dev tools
             bacon
+            qemu
             nixpkgs-fmt
             rust-analyzer
             cargo-nextest # https://nexte.st/
