@@ -31,7 +31,30 @@ fn panic(info: &PanicInfo) -> ! {
 /// Eventually, we will want to call something like the exit system call.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello {}", "World!");
-    panic!("foobar");
+    // println!("Hello {}", "World!");
+    // panic!("foobar");
+    draw_heart();
     loop {}
+}
+
+fn draw_heart() {
+    println!("   *******     *******   ");
+    println!("  *       *   *       *  ");
+    println!(" *         ***         * ");
+    println!("*  ======       ======  *");
+    println!("*    II     +   II      *");
+    println!("*    II    +++  ======  *");
+    println!("*    II     +       II  *");
+    println!(" *   II         ====== * ");
+    println!("  *                   *  ");
+    println!("   *                 *   ");
+    println!("    *               *    ");
+    println!("     *             *     ");
+    println!("      *           *      ");
+    println!("       *         *       ");
+    println!("        *       *        ");
+    println!("         *     *         ");
+    println!("          *   *          ");
+    println!("           * *           ");
+    println!("            *            ");
 }
