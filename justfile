@@ -20,3 +20,6 @@ test: build
 update:
   nix flake update
   cargo update
+
+run:
+  cargo run
