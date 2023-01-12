@@ -225,3 +225,31 @@ impl fmt::Write for Writer {
 //
 //     write!(writer, "Some numbers: {} and {}", 42, 1.0 / 3.0).unwrap();
 // }
+
+// Just run the println! macro and check that it does not panic
+#[test_case]
+fn test_println_simple() {
+    println!("test_println_simple output");
+}
+
+// Same as above but for a number of println statements
+#[test_case]
+fn test_println_many() {
+    for _ in 0..300 {
+        println!("test_println_simple output");
+    }
+}
+
+// Test that a line of text printed to the VGA buffer has actually been written to that buffer
+#[test_case]
+fn test_println_output() {
+    // our test string
+    let s = "foo bar baz";
+    println!("{}", s);
+    for (i, c) in s.chars().enumerate() {
+        // read the buffer and check, character for character, that it actually equals the
+        // character in our test string
+        let screen_char = WRITER.lock().buffer.chars[BUFFER_HEIGHT - 2][i].read();
+        assert_eq!(char::from(screen_char.character), c);
+    }
+}

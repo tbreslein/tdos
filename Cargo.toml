@@ -8,3 +8,30 @@ bootloader = "0.9.23"
 volatile = "0.2.6"
 lazy_static = {version =  "1.0", features = [ "spin_no_std" ] }
 spin = "0.5.2"
+x86_64 = "0.14.2"
+uart_16550 = "0.2.0"
+
+[package.metadata.bootimage]
+test-args = [
+  # Maps QEMU's isa-debug-exit device to the x86 IO port 0xf4 (which is usually an unused port)
+  # with a port size of 4 bytes. We use this device to tell QEMU where to look for exit codes,
+  # and write the exit codes of our test runner to this port.
+  "-device", "isa-debug-exit,iobase=0xf4,iosize=0x04",
+
+  # We also tell QEMU to redirect serial output to the host's stdio. This way we can actually
+  # see the output of our test runner.
+  "-serial", "stdio",
+
+  # When running tests, we don't need the QEMU window to pop up, we just need it to run our tests
+  # and exit.
+  "-display", "none"
+]
+
+# note that our QemuExitCode::Success = 0x10 and that QEMU transforms exit codes via (x << 1) | 1,
+# and with that our success code transforms to (0x10 << 1) | 1 = 33.
+# We need to then tell cargo that this exit code denotes a successful test run, which bootimage
+# handles for us.
+test-success-exit-code = 33
+
+# make sure that a test run exits eventually, even when running into an endless loop somehow
+test-timeout = 300 #seconds

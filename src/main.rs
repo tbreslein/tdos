@@ -4,9 +4,22 @@
 // the entry point (i.e. the main function). Thus, we have to create our own entry point, aka the
 // function marked with `start`, and disable all Rust-level entry points.
 #![no_main]
+// We need a custom test framework, because the standard testing framework depends on std
+#![feature(custom_test_frameworks)]
+// Redefine which function is used as the test run
+#![test_runner(crate::test_runner::test_runner)]
+// Redefine what the test harness is called. This is needed, because we have no main, but a main
+// function is exactly what the custom_test_frameworks feature calls the function that calls the
+// test_runner. Thus, we need to rename that function, and then we can call it in our _start.
+#![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
 
+mod qemu;
+#[macro_use]
+mod serial;
+#[cfg(test)]
+mod test_runner;
 mod vga_buffer;
 
 /// core does not provide its own panic handler, as its defined in std. Since we have a #![no_std]
@@ -14,9 +27,22 @@ mod vga_buffer;
 /// compiler now that this is the panic handler it needs to use.
 ///
 /// NOTE: The ! is the "never" type because this function is supposed to never return.
+#[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
+    loop {}
+}
+
+/// Seperate panic handler when running tests. This writes to our SERIAL1 device which is then
+/// rerouted to the VM host's stdio. This way we can see panics when running tests in our console,
+/// because QEMU can print it to said console.
+#[cfg(test)]
+#[panic_handler]
+fn panic(info: &PanicInfo) -> ! {
+    serial_println!("[failed]\n");
+    serial_println!("Error: {}\n", info);
+    qemu::exit_qemu(qemu::QemuExitCode::Failed);
     loop {}
 }
 
@@ -33,6 +59,10 @@ fn panic(info: &PanicInfo) -> ! {
 pub extern "C" fn _start() -> ! {
     // println!("Hello {}", "World!");
     // panic!("foobar");
+
+    #[cfg(test)]
+    test_main();
+
     draw_heart();
     loop {}
 }
@@ -57,4 +87,10 @@ fn draw_heart() {
     println!("          *   *          ");
     println!("           * *           ");
     println!("            *            ");
+}
+
+/// Tests the test runner, basically
+#[test_case]
+fn trivial_assertion() {
+    assert_eq!(1, 1);
 }
