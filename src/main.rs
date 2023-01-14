@@ -57,9 +57,7 @@ fn panic(info: &PanicInfo) -> ! {
 /// Eventually, we will want to call something like the exit system call.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    // println!("Hello {}", "World!");
-    // panic!("foobar");
-
+    println!("Hello {}", "World!");
     #[cfg(test)]
     test_main();
 
