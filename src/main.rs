@@ -57,14 +57,17 @@ fn panic(info: &PanicInfo) -> ! {
 /// Eventually, we will want to call something like the exit system call.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello {}", "World!");
+    // println!("Hello {}", "World!");
+    println!("Welcome to tdos!");
+    println!("Unfortunately, this little kernel\nisn't interactive yet... <.<");
     #[cfg(test)]
     test_main();
 
-    draw_heart();
+    // draw_heart();
     loop {}
 }
 
+#[allow(dead_code)]
 fn draw_heart() {
     println!("   *******     *******   ");
     println!("  *       *   *       *  ");
