@@ -7,20 +7,19 @@
 // We need a custom test framework, because the standard testing framework depends on std
 #![feature(custom_test_frameworks)]
 // Redefine which function is used as the test run
-#![test_runner(crate::test_runner::test_runner)]
+#![test_runner(tdos::test_runner::test_runner)]
 // Redefine what the test harness is called. This is needed, because we have no main, but a main
 // function is exactly what the custom_test_frameworks feature calls the function that calls the
 // test_runner. Thus, we need to rename that function, and then we can call it in our _start.
 #![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
+use tdos::println;
 
-mod qemu;
-#[macro_use]
-mod serial;
 #[cfg(test)]
 mod test_runner;
-mod vga_buffer;
+mod qemu;
+mod serial;
 
 /// core does not provide its own panic handler, as its defined in std. Since we have a #![no_std]
 /// environment, we have to write our own panic_handler. The #[panic_handler] attribute lets the
@@ -40,10 +39,8 @@ fn panic(info: &PanicInfo) -> ! {
 #[cfg(test)]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    serial_println!("[failed]\n");
-    serial_println!("Error: {}\n", info);
-    qemu::exit_qemu(qemu::QemuExitCode::Failed);
-    loop {}
+    use test_runner::test_panic_handler;
+    test_panic_handler(info)
 }
 
 /// The custom entry point for the binary.

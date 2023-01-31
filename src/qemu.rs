@@ -8,6 +8,8 @@
 /// failing.
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
 #[repr(u32)]
+#[allow(dead_code)] // this code is only really used in tests, so cargo complains about dead code
+                    // for non-test binaries
 pub enum QemuExitCode {
     Success = 0x10,
     Failed = 0x11,
@@ -19,6 +21,7 @@ pub enum QemuExitCode {
 /// x86's IO bus, because that is a port that's usually unused. This port is then mapped to QEMU's
 /// isa-debug-exit device with a port size of 4 bytes. This mapping is defined in the test-args in
 /// the Cargo.toml, which defines the arguments passed to QEMU when running cargo test.
+#[allow(dead_code)]
 pub fn exit_qemu(exit_code: QemuExitCode) {
     use x86_64::instructions::port::Port;
     unsafe {
