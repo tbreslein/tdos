@@ -56,10 +56,15 @@ fn panic(info: &PanicInfo) -> ! {
 pub extern "C" fn _start() -> ! {
     println!("Welcome to tdos!");
     println!("Unfortunately, this little kernel\nisn't interactive yet... <.<");
+
+    tdos::init();
+    x86_64::instructions::interrupts::int3();
+
     #[cfg(test)]
     test_main();
 
     // draw_heart();
+    println!("It didn't crash though, that exception was planned!");
     loop {}
 }
 

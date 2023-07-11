@@ -1,3 +1,6 @@
+run:
+  rustup run nightly cargo run
+
 clean:
   rustup run nightly cargo clean
 
@@ -18,6 +21,3 @@ test:
 
 update:
   rustup run nightly cargo update
-
-run:
-  rustup run nightly cargo run
