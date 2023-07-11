@@ -1,25 +1,23 @@
 clean:
-  cargo clean
+  rustup run nightly cargo clean
 
 format:
-  rustfmt ./**/*.rs
+  rustup run nightly cargo fmt
 
 clippy:
-  cargo clippy -- -A clippy::needless_return -A clippy::op_ref -A clippy::too_many_arguments
+  rustup run nightly cargo clippy -- -A clippy::needless_return -A clippy::op_ref -A clippy::too_many_arguments
 
 doc:
-  cargo doc --document-private-items
+  rustup run nightly cargo doc --document-private-items
 
 build: format clippy doc
-  cargo build -r
+  rustup run nightly cargo test
 
-test: build
-  cargo test --doc
-  cargo nextest run
+test:
+  rustup run nightly cargo test
 
 update:
-  nix flake update
-  cargo update
+  rustup run nightly cargo update
 
 run:
-  cargo run
+  rustup run nightly cargo run
