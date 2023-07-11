@@ -7,6 +7,7 @@
 #[cfg(test)]
 use core::panic::PanicInfo;
 
+pub mod gdt;
 pub mod interrupts;
 pub mod qemu;
 #[macro_use]
@@ -25,6 +26,7 @@ pub extern "C" fn _start() -> ! {
 
 /// Central function for anything that needs to initialised
 pub fn init() {
+    gdt::init();
     interrupts::init_dt();
 }
 

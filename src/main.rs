@@ -58,13 +58,15 @@ pub extern "C" fn _start() -> ! {
     println!("Unfortunately, this little kernel\nisn't interactive yet... <.<");
 
     tdos::init();
-    x86_64::instructions::interrupts::int3();
+    unsafe {
+        *(0xdeadbeed as *mut u8) = 42;
+    };
 
     #[cfg(test)]
     test_main();
 
     // draw_heart();
-    println!("It didn't crash though, that exception was planned!");
+    println!("It didn't crash!");
     loop {}
 }
 
