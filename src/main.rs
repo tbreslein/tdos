@@ -58,9 +58,6 @@ pub extern "C" fn _start() -> ! {
     println!("Unfortunately, this little kernel\nisn't interactive yet... <.<");
 
     tdos::init();
-    unsafe {
-        *(0xdeadbeed as *mut u8) = 42;
-    };
 
     #[cfg(test)]
     test_main();
