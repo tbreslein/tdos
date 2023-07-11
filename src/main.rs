@@ -16,10 +16,10 @@
 use core::panic::PanicInfo;
 use tdos::println;
 
-#[cfg(test)]
-mod test_runner;
 mod qemu;
 mod serial;
+#[cfg(test)]
+mod test_runner;
 
 /// core does not provide its own panic handler, as its defined in std. Since we have a #![no_std]
 /// environment, we have to write our own panic_handler. The #[panic_handler] attribute lets the
@@ -54,7 +54,6 @@ fn panic(info: &PanicInfo) -> ! {
 /// Eventually, we will want to call something like the exit system call.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    // println!("Hello {}", "World!");
     println!("Welcome to tdos!");
     println!("Unfortunately, this little kernel\nisn't interactive yet... <.<");
     #[cfg(test)]
