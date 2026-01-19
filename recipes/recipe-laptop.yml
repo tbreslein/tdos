@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: tdos-laptop
+description: bluefin-dx spin for dev
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: latest
+
+modules:
+  - from-file: roles/common.yml
+  - from-file: roles/laptop.yml

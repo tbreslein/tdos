@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: tdos-desktop
+description: bazzite spin for gaming and dev
+base-image: ghcr.io/ublue-os/bazzite-dx
+image-version: latest
+
+modules:
+  - from-file: roles/common.yml
+  - from-file: roles/desktop.yml
