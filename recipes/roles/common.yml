@@ -21,6 +21,7 @@ modules:
             - dev.vencord.Vesktop
             - org.localsend.localsend_app
             - dev.zed.Zed
+            - org.fedoraproject.MediaWriter
   - type: fonts
     fonts:
       nerd-fonts:
