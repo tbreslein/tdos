@@ -20,6 +20,7 @@ modules:
             - org.libreoffice.LibreOffice
             - dev.vencord.Vesktop
             - org.localsend.localsend_app
+            - dev.zed.Zed
   - type: fonts
     fonts:
       nerd-fonts:
