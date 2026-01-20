@@ -10,7 +10,7 @@ modules:
         - zathura-ps
         - zathura-djvu
         - zathura-pdf-poppler
-  - default-flatpaks:
+  - type: default-flatpaks
       configurations:
         - notify: true
           install:
