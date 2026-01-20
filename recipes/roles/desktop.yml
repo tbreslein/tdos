@@ -1,9 +1,0 @@
----
-modules:
-  - default-flatpaks:
-      configurations:
-        - notify: true
-          scope: system
-          install:
-            - io.github.Faugus.faugus-launcher
-        - scope: user

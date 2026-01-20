@@ -7,5 +7,9 @@ base-image: ghcr.io/ublue-os/bluefin-dx
 image-version: latest
 
 modules:
-  - from-file: roles/common.yml
-  - from-file: roles/laptop.yml
+  - from-file: common.yml
+  - type: gnome-extensions
+    install:
+      - 3193 # Blur my Shell
+      - 517 # Caffeine
+      - 307 # dash to dock

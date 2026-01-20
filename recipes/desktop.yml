@@ -8,4 +8,3 @@ image-version: latest
 
 modules:
   - from-file: roles/common.yml
-  - from-file: roles/desktop.yml
