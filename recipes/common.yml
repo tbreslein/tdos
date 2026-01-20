@@ -15,4 +15,14 @@ modules:
         - notify: true
           install:
             - io.gitlab.librewolf-community
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - Hack
+        - GeistMono
+        - CommitMono
+        - GohuFont
+        - ProggyClean
+        - Terminus
+        - DepartureMono
   - type: signing
