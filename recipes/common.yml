@@ -11,10 +11,10 @@ modules:
         - zathura-djvu
         - zathura-pdf-poppler
   - type: default-flatpaks
-      configurations:
-        - notify: true
-          install:
-            - io.gitlab.librewolf-community
+    configurations:
+      - notify: true
+        install:
+          - io.gitlab.librewolf-community
   - type: fonts
     fonts:
       nerd-fonts:
