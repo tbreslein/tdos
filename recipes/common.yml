@@ -10,11 +10,13 @@ modules:
         - zathura-ps
         - zathura-djvu
         - zathura-pdf-poppler
+
   - type: default-flatpaks
     configurations:
       - notify: true
         install:
           - io.gitlab.librewolf-community
+
   - type: fonts
     fonts:
       # the names of there the filenames in the assets without extension
@@ -27,4 +29,10 @@ modules:
         - ProggyClean
         - Terminus
         - DepartureMono
+
+  - type: justfiles
+    validate: true
+    include:
+      - syke.just
+
   - type: signing
