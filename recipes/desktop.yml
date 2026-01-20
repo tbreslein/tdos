@@ -7,4 +7,4 @@ base-image: ghcr.io/ublue-os/bazzite-dx
 image-version: latest
 
 modules:
-  - from-file: roles/common.yml
+  - from-file: common.yml
