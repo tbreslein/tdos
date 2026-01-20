@@ -17,6 +17,8 @@ modules:
           - io.gitlab.librewolf-community
   - type: fonts
     fonts:
+      # the names of there the filenames in the assets without extension
+      # e.g.: Hack.tar.xz => Hack
       nerd-fonts:
         - Hack
         - GeistMono
