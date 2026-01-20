@@ -1,4 +1,4 @@
-tommy_dir := os() == "linux" { "/home/tommy" } else { "/Users/tommy" }
+tommy_dir := if os() == "linux" { "/home/tommy" } else { "/Users/tommy" }
 dots_dir := f'{{tommy_dir}}/dots'
 
 syke:
