@@ -1,5 +1,5 @@
 tommy_dir := if os() == "linux" { "/home/tommy" } else { "/Users/tommy" }
-dots_dir := f'{{ tommy_dir }}/dots'
+dots_dir := f'{{tommy_dir}}/dots'
 
 syke:
     if [ ! -d "{{ dots_dir }}" ]; then cd {{ tommy_dir }} && \
@@ -9,4 +9,3 @@ syke:
     fi
 
     {{ dots_dir }}/scripts/syke
-
