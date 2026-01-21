@@ -4,7 +4,8 @@ modules:
     install:
       packages:
         - alacritty
-        - emacs
+        # - emacs
+        - builddep emacs
         - zathura
         - zathura-cb
         - zathura-ps
