@@ -20,7 +20,7 @@ modules:
 
   - type: script
     snippets:
-      - "dnf builddep emacs"
+      - "dnf -y builddep emacs"
 
   - type: fonts
     fonts:
