@@ -5,7 +5,7 @@ modules:
       packages:
         - alacritty
         # - emacs
-        - builddep emacs
+        # - builddep emacs
         - zathura
         - zathura-cb
         - zathura-ps
@@ -17,6 +17,10 @@ modules:
       - notify: true
         install:
           - io.gitlab.librewolf-community
+
+  - type: script
+    snippets:
+      - "dnf builddep emacs"
 
   - type: fonts
     fonts:
