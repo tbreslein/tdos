@@ -3,9 +3,6 @@ modules:
   - type: dnf
     install:
       packages:
-        - alacritty
-        # - emacs
-        # - builddep emacs
         - zathura
         - zathura-cb
         - zathura-ps
@@ -21,19 +18,6 @@ modules:
   - type: script
     snippets:
       - "dnf -y builddep emacs"
-
-  - type: fonts
-    fonts:
-      # the names of there the filenames in the assets without extension
-      # e.g.: Hack.tar.xz => Hack
-      nerd-fonts:
-        - Hack
-        - GeistMono
-        - CommitMono
-        - Gohu
-        - ProggyClean
-        - Terminus
-        - DepartureMono
 
   - type: justfiles
     validate: true
