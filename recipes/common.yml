@@ -5,6 +5,7 @@ modules:
       packages:
         - alacritty
         - emacs
+        - libvterm
         - zathura
         - zathura-cb
         - zathura-ps
