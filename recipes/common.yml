@@ -1,6 +1,9 @@
 ---
 modules:
   - type: dnf
+    repos:
+      cleanup: true
+
     install:
       packages:
         - alacritty
@@ -12,15 +15,14 @@ modules:
         - zathura-djvu
         - zathura-pdf-poppler
 
+        - qutebrowser
+        - libavcodec-freeworld
+
   - type: default-flatpaks
     configurations:
-      - notify: true
+      - notify: false
         install:
           - io.gitlab.librewolf-community
-
-  # - type: script
-  #   snippets:
-  #     - "dnf -y builddep emacs"
 
   - type: justfiles
     validate: true
