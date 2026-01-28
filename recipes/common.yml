@@ -1,26 +1,26 @@
 ---
 modules:
-  - type: dnf
-    install:
-      packages:
-        - alacritty
-        - emacs
-        - libvterm
-        - zathura
-        - zathura-cb
-        - zathura-ps
-        - zathura-djvu
-        - zathura-pdf-poppler
+  # - type: dnf
+  #   install:
+  #     packages:
+  #       - alacritty
+  #       - emacs
+  #       - libvterm
+  #       - zathura
+  #       - zathura-cb
+  #       - zathura-ps
+  #       - zathura-djvu
+  #       - zathura-pdf-poppler
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true
-        install:
-          - io.gitlab.librewolf-community
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: true
+  #       install:
+  #         - io.gitlab.librewolf-community
 
-  - type: justfiles
-    validate: true
-    include:
-      - syke.just
+  # - type: justfiles
+  #   validate: true
+  #   include:
+  #     - syke.just
 
   - type: signing
