@@ -16,7 +16,7 @@ modules:
         - zathura-djvu
         - zathura-pdf-poppler
 
-        - qutebrowser
+        # - qutebrowser
         # - ffmpeg # already installed on both bazzite and bluefin
 
   - type: default-flatpaks
