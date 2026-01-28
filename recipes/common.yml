@@ -21,7 +21,6 @@ modules:
         - zathura-pdf-poppler
 
         - qutebrowser
-        - libavcodec-freeworld
         - ffmpeg
 
   - type: default-flatpaks
