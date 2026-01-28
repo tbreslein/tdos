@@ -1,10 +1,6 @@
 ---
 modules:
   - type: dnf
-    # repos:
-    #   cleanup: true
-    #   nonfree: rpmfusion
-
     install:
       packages:
         - alacritty
@@ -16,12 +12,9 @@ modules:
         - zathura-djvu
         - zathura-pdf-poppler
 
-        # - qutebrowser
-        # - ffmpeg # already installed on both bazzite and bluefin
-
   - type: default-flatpaks
     configurations:
-      - notify: false
+      - notify: true
         install:
           - io.gitlab.librewolf-community
 
