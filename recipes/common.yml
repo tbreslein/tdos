@@ -18,6 +18,23 @@ modules:
 
         - qutebrowser
         - libavcodec-freeworld
+        - ffmpeg
+
+  # this + installing ffmpeg is to ensure the libavcodec-freeworld for
+  # qutebrowser can be installed. this is based on the commonly suggested
+  # workaround for installing libavcodec-freeworld:
+  ## rpm-ostree override remove libavdevice-free libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free ffmpeg-free --install ffmpeg
+  - type: rpm-ostree
+    remove:
+      - libavdevice-free
+      - libavcodec-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
+      - ffmpeg-free
 
   - type: default-flatpaks
     configurations:
