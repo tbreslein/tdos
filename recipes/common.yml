@@ -17,7 +17,7 @@ modules:
         - zathura-pdf-poppler
 
         - qutebrowser
-        - ffmpeg
+        # - ffmpeg # already installed on both bazzite and bluefin
 
   - type: default-flatpaks
     configurations:
