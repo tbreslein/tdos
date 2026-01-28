@@ -1,11 +1,11 @@
 ---
 modules:
-  # - type: dnf
-  #   install:
-  #     packages:
-  #       - alacritty
-  #       - emacs
-  #       - libvterm
+  - type: dnf
+    install:
+      packages:
+        - alacritty
+        - emacs
+        - libvterm
   #       - zathura
   #       - zathura-cb
   #       - zathura-ps
