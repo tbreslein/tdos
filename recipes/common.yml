@@ -5,10 +5,6 @@ modules:
       cleanup: true
       nonfree: rpmfusion
 
-    remove:
-      packages:
-        - ffmpeg-free
-
     install:
       packages:
         - alacritty
