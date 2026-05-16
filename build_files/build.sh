@@ -45,7 +45,8 @@ dnf5 -y install imv \
     vlc mpv
 
 # emacs build deps
-dnf5 -y install @c-development @development-tools --with-optional
+dnf5 -y group install c-development --with-optional
+dnf5 -y group install development-tools --with-optional
 dnf5 -y builddep emacs
 dnf5 -y install libgccjit libgccjit-devel \
     gtk3 gtk3-devel gtk4 gtk4-devel \
