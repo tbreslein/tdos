@@ -18,20 +18,36 @@ dnf5 -y copr enable ashbuk/Hyprland-Fedora
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# desktop
 dnf5 install -y syncthing \
     alacritty \
     foot \
-    emacs mupdf mupdf-devel \
+    emacs mupdf mupdf-devel tree-sitter-cli \
     hyprland xdg-desktop-portal-hyprland \
     hyprlock hypridle \
     swaybg gammastep dunst rofi waybar \
     xorg-x11-server-Xwayland \
     playerctl brightnessctl
 
+# common (i don't want to rely on homebrew to have these)
+dnf5 -y install vim git \
+    bash-completion
+
+# coding
+dnf5 -y install rustup \
+    zig \
+    golang gopls \
+    cmake ninja-build bear clang clang-tools-extra \
+    nodejs
+
+# desktop
+dnf5 -y install imv \
+    vlc mpv
+
 # emacs build deps
-dnf -y groupinstall "Development Tools"
-dnf -y builddep emacs
-dnf -y install libgccjit libgccjit-devel \
+dnf5 -y install @c-development @development-tools --with-optional
+dnf5 -y builddep emacs
+dnf5 -y install libgccjit libgccjit-devel \
     gtk3 gtk3-devel gtk4 gtk4-devel \
     libtree-sitter libtree-sitter-devel \
     jansson-devel libvterm-devel \
