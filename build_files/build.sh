@@ -28,6 +28,15 @@ dnf5 install -y syncthing \
     xorg-x11-server-Xwayland \
     playerctl brightnessctl
 
+# emacs build deps
+dnf -y groupinstall "Development Tools"
+dnf -y builddep emacs
+dnf -y install libgccjit libgccjit-devel \
+    gtk3 gtk3-devel gtk4 gtk4-devel \
+    libtree-sitter libtree-sitter-devel \
+    jansson-devel libvterm-devel \
+    webkit2gtk5.0-devel gnutls-devel
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
