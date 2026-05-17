@@ -42,7 +42,8 @@ dnf5 -y install rustup \
 
 # desktop
 dnf5 -y install imv \
-    vlc mpv
+    vlc mpv \
+    flameshot grim slurp
 
 # emacs build deps
 dnf5 -y group install c-development --with-optional
