@@ -52,7 +52,7 @@ dnf5 -y install libgccjit libgccjit-devel \
     gtk3 gtk3-devel gtk4 gtk4-devel \
     libtree-sitter libtree-sitter-devel \
     jansson-devel libvterm-devel \
-    webkit2gtk4.1-devel webkit2gtk6.0-devel gnutls-devel
+    webkit2gtk4.1-devel webkitgtk6.0-devel gnutls-devel
 
 #### Example for enabling a System Unit File
 
