@@ -20,13 +20,15 @@ dnf5 -y copr enable ashbuk/Hyprland-Fedora
 
 # desktop
 dnf5 install -y syncthing \
-    alacritty \
     foot \
     emacs mupdf mupdf-devel tree-sitter-cli \
     hyprland xdg-desktop-portal-hyprland \
     hyprlock hypridle \
     swaybg gammastep dunst rofi waybar \
     xorg-x11-server-Xwayland \
+    wl-clipboard \
+    flameshot grim slurp \
+    imv mpv vlc \
     playerctl brightnessctl
 
 # common (i don't want to rely on homebrew to have these)
@@ -39,11 +41,6 @@ dnf5 -y install rustup \
     golang gopls \
     cmake ninja-build bear clang clang-tools-extra \
     nodejs
-
-# desktop
-dnf5 -y install imv \
-    vlc mpv \
-    flameshot grim slurp
 
 # emacs build deps
 dnf5 -y group install c-development --with-optional
