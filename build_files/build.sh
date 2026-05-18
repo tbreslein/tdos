@@ -11,6 +11,15 @@ set -ouex pipefail
 
 dnf5 -y copr enable ashbuk/Hyprland-Fedora
 
+# librewolf
+dnf5 -y config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
+dnf5 -y install librewolf
+
+brave browser
+dnf5 -y install dnf-plugins-core
+dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+dnf5 -y install brave-browser
+
 ### Install packages
 #
 # Packages can be installed from any enabled yum repo on the image.
