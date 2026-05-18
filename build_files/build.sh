@@ -20,7 +20,7 @@ dnf5 -y copr enable ashbuk/Hyprland-Fedora
 
 # desktop
 dnf5 install -y syncthing \
-    foot \
+    alacritty \
     emacs mupdf mupdf-devel tree-sitter-cli \
     hyprland xdg-desktop-portal-hyprland \
     hyprlock hypridle \
