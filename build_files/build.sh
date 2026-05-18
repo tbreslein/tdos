@@ -33,7 +33,8 @@ dnf5 install -y syncthing \
 
 # common (i don't want to rely on homebrew to have these)
 dnf5 -y install vim git \
-    bash-completion
+    bash-completion \
+    NetworkManager-tui
 
 # coding
 dnf5 -y install rustup \
