@@ -11,21 +11,9 @@ set -ouex pipefail
 
 dnf5 -y copr enable ashbuk/Hyprland-Fedora
 
-# optfix part 1
-mkdir -p "/var/opt"
-ln -s "/var/opt" "/opt"
-
 # librewolf
 dnf5 -y config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
 dnf5 -y install librewolf
-
-# brave browser
-dnf5 -y install dnf-plugins-core
-dnf5 -y config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-# optfix part 2
-mkdir -p "/usr/lib/opt/brave.com"
-ln -s "../../usr/lib/opt/brave.com" "/var/opt/brave.com"
-dnf5 -y install brave-browser
 
 ### Install packages
 #
